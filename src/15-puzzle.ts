@@ -1,5 +1,5 @@
 import { Vec2 } from './vec2.ts';
-import { create } from 'https://esm.sh/random-seed.ts';
+import { create } from 'https://esm.sh/random-seed';
 import { chooseRandom, chooseRandomIndex, range } from './utils.ts';
 import { notDupe } from './dupe.ts';
 
