@@ -1,5 +1,11 @@
-export const chooseRandomIndex = <T>(array: T[], randomizer = () => Math.random()): number => Math.floor(randomizer() * array.length);
-export const chooseRandom      = <T>(array: T[], randomizer = () => Math.random()): T      => array[chooseRandomIndex(array, randomizer)];
+export const chooseRandomIndex = <T>(
+  array: T[],
+  randomizer = () => Math.random(),
+): number => Math.floor(randomizer() * array.length);
+export const chooseRandom = <T>(
+  array: T[],
+  randomizer = () => Math.random(),
+): T => array[chooseRandomIndex(array, randomizer)];
 
 export const flip = <T>(e: T, i: number, a: T[]) => a[a.length - 1 - i];
 
@@ -14,6 +20,9 @@ export function range(...args: number[]): number[] {
       return range(args[0], args[1], 1);
     default:
       const [start, end, step] = args;
-      return [...Array(Math.ceil((end - start) / step))].map((v: number, i: number) => start + i * step);
+      return [...Array(Math.ceil((end - start) / step))].map((
+        v: number,
+        i: number,
+      ) => start + i * step);
   }
 }
