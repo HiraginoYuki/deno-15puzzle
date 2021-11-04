@@ -1,7 +1,6 @@
 import { Vec2 } from './vec2.ts';
 import { create } from 'https://esm.sh/random-seed';
 import { chooseRandom, chooseRandomIndex, range } from './utils.ts';
-import { notDupe } from './dupe.ts';
 
 export class Piece {
   constructor(
@@ -30,7 +29,7 @@ export class Pieces extends Array<Readonly<Piece>[]> {
     ) && (
       pieces.every(Number.isInteger) &&
       pieces.every((piece) => 0 <= piece && piece <= pieces.length - 1) &&
-      pieces.length === pieces.filter(notDupe).length
+      pieces.length === new Set(pieces).length
     );
   }
   public static check2d(pieces: number[][]): boolean {
