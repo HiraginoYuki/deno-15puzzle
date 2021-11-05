@@ -1,5 +1,4 @@
 class Vec2Base extends Array<number> {
-  readonly length: 2;
   constructor(
     public x: number,
     public y: number,
