@@ -1,1 +1,1 @@
-export { FifteenPuzzle, Piece, Pieces } from './15-puzzle.ts';
+export { FifteenPuzzle, Piece, Pieces } from "./15-puzzle.ts";

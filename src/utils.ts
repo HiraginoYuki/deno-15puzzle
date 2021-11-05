@@ -7,8 +7,6 @@ export const chooseRandom = <T>(
   randomizer = () => Math.random(),
 ): T => array[chooseRandomIndex(array, randomizer)];
 
-export const flip = <T>(e: T, i: number, a: T[]) => a[a.length - 1 - i];
-
 export function range(end: number): number[];
 export function range(start: number, end: number): number[];
 export function range(start: number, end: number, step: number): number[];

@@ -1,6 +1,6 @@
-import { Vec2 } from './vec2.ts';
-import { create } from 'https://esm.sh/random-seed';
-import { chooseRandom, chooseRandomIndex, range } from './utils.ts';
+import { Vec2 } from "./vec2.ts";
+import { create } from "https://esm.sh/random-seed";
+import { chooseRandom, chooseRandomIndex, range } from "./utils.ts";
 
 export class Piece {
   constructor(
@@ -36,16 +36,16 @@ export class Pieces extends Array<Readonly<Piece>[]> {
     return (
       2 <= pieces.length &&
       2 <= pieces[0].length &&
-      typeof pieces[0][0] === 'number' &&
+      typeof pieces[0][0] === "number" &&
       pieces.every((row) => (
         row.length === pieces[0].length &&
-        row.every((piece) => typeof piece === 'number')
+        row.every((piece) => typeof piece === "number")
       ))
     );
   }
   public static to2d(pieces: number[], width: number, height: number) {
     if (!this.check1d(pieces, width, height)) {
-      throw new RangeError('check1d() returned false');
+      throw new RangeError("check1d() returned false");
     }
     return [...Array(height)].map((_, y) =>
       pieces.slice(y * width, (y + 1) * width)
@@ -66,7 +66,7 @@ export class Pieces extends Array<Readonly<Piece>[]> {
       ))
     ));
     if (!Pieces.check2d(pieces)) {
-      throw new RangeError('illegal argument: pieces');
+      throw new RangeError("illegal argument: pieces");
     }
     this.width = pieces[0].length;
     this.height = pieces.length;
@@ -86,15 +86,15 @@ export class Pieces extends Array<Readonly<Piece>[]> {
 
   public getPiece(idOrPoint: number | Vec2) {
     return (
-      typeof idOrPoint === 'number'
+      typeof idOrPoint === "number"
         ? this.in1d.find((piece) => idOrPoint === piece.id)
         : this[idOrPoint.y][idOrPoint.x]
     ) as Piece | null;
   }
 
   public _swap(piece1: Piece, piece2: Piece) {
-    if (!(piece1 instanceof Piece)) throw new RangeError('piece1 is wrong');
-    if (!(piece2 instanceof Piece)) throw new RangeError('piece2 is wrong');
+    if (!(piece1 instanceof Piece)) throw new RangeError("piece1 is wrong");
+    if (!(piece2 instanceof Piece)) throw new RangeError("piece2 is wrong");
     if (piece1 === piece2) return;
     const { x: x1, y: y1 } = piece1;
     const { x: x2, y: y2 } = piece2;
@@ -115,7 +115,7 @@ export class Pieces extends Array<Readonly<Piece>[]> {
       !Number.isInteger(y) || this.height < y
     ) {
       $debug(-1, `The x or y is out of range :(`);
-      throw new RangeError('x or y is out of range');
+      throw new RangeError("x or y is out of range");
     }
     const tappedPiece = this[y][x];
     $debug(1, `All the checks are passed :) piece id = ${tappedPiece.id}`);
@@ -173,16 +173,16 @@ export class FifteenPuzzle extends Pieces {
   }
 
   protected static convertArgs(args: FifteenPuzzleArgs) {
-    const isSeedPassed = typeof args[0] === 'string';
+    const isSeedPassed = typeof args[0] === "string";
     const seed = isSeedPassed ? args[0] as string : `${+new Date()}`;
     const width = isSeedPassed
-      ? typeof args[1] === 'number' ? args[1] : 4
-      : /*************************/ typeof args[0] === 'number'
+      ? typeof args[1] === "number" ? args[1] : 4
+      : /*************************/ typeof args[0] === "number"
       ? args[0]
       : 4;
     const height = isSeedPassed
-      ? typeof args[2] === 'number' ? args[2] : width
-      : /*************************/ typeof args[1] === 'number'
+      ? typeof args[2] === "number" ? args[2] : width
+      : /*************************/ typeof args[1] === "number"
       ? args[1]
       : width;
 
