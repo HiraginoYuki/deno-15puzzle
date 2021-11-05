@@ -29,7 +29,7 @@ export class Pieces extends Array<Readonly<Piece>[]> {
     ) && (
       pieces.every(Number.isInteger) &&
       pieces.every((piece) => 0 <= piece && piece <= pieces.length - 1) &&
-      pieces.length === new Set(pieces).length
+      pieces.length === new Set(pieces).size
     );
   }
   public static check2d(pieces: number[][]): boolean {
