@@ -1,5 +1,5 @@
 import { Vec2 } from "./vec2.ts";
-import { create } from "https://cdn.skypack.dev/random-seed";
+import { create } from "https://cdn.skypack.dev/random-seed?dts";
 import { chooseRandom, chooseRandomIndex, range } from "./utils.ts";
 
 export class Piece {
