@@ -1,5 +1,5 @@
 import { Vec2 } from "./vec2.ts";
-import { create } from "https://esm.sh/random-seed?pin=v53";
+import { create } from "https://esm.shiina.family/random-seed";
 import { chooseRandom, chooseRandomIndex, range } from "./utils.ts";
 
 export class Piece {
